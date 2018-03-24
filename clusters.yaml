@@ -1,4 +1,4 @@
-- alias: hasura
+- alias: darkside
   config:
     configmap: controller-conf
     namespace: hasura
