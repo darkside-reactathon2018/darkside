@@ -21,18 +21,18 @@ remotes:
 - name: '{{ cluster.name }}'      # DO NOT edit this line
   deployments:                  # DO NOT edit this line
 
-  # Add output of `hasura conf generate-remote` below this line
-  - name: ui
-    namespace: '{{ cluster.metadata.namespaces.user }}'
-    containers:
-    - name: ui
-      dockerBuild:
-        dockerfilePath: microservices/ui/Dockerfile
-        contextPath: microservices/ui
-  - name: api
-    namespace: '{{ cluster.metadata.namespaces.user }}'
-    containers:
-    - name: api
-      dockerBuild:
-        dockerfilePath: microservices/api/Dockerfile
-        contextPath: microservices/api
+  # # Add output of `hasura conf generate-remote` below this line
+  # - name: ui
+  #   namespace: '{{ cluster.metadata.namespaces.user }}'
+  #   containers:
+  #   - name: ui
+  #     dockerBuild:
+  #       dockerfilePath: microservices/ui/Dockerfile
+  #       contextPath: microservices/ui
+  # - name: api
+  #   namespace: '{{ cluster.metadata.namespaces.user }}'
+  #   containers:
+  #   - name: api
+  #     dockerBuild:
+  #       dockerfilePath: microservices/api/Dockerfile
+  #       contextPath: microservices/api
