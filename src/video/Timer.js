@@ -56,7 +56,7 @@ export default class Loading extends Component {
 
   render() {
 		if (this.state.redirect) {
-      return <Redirect to="/user/:user_id/chat" />
+      return <Redirect to="/report" />
     }
     return(
       <div>

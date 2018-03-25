@@ -94,7 +94,7 @@ class Video extends Component {
               <Subscriber />
             </OTStreams>
           </OTSession>
-					<Link to="/" style={{ margin: "50px" }}><Button>Get me out of here!</Button></Link>
+					<Link to="/report" style={{ margin: "50px" }}><Button>Get me out of here!</Button></Link>
         </div>
       )
     );
