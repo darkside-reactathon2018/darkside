@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { Redirect } from "react-router-dom";
+import { CircleLoader } from "react-spinners";
 
 const DateContainer = styled.div`
   border: 1px solid var(--light-pink);
@@ -26,6 +27,13 @@ const ButtonContainer = styled.div`
 
 const Name = styled.h3`
   padding-left: 20px;
+`;
+
+const PendingStyle = styled.h2`
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  flex-direction: column; 
 `;
 
 class Schedule extends Component {
@@ -70,16 +78,16 @@ class Schedule extends Component {
     return (
       <div>
         {this.state.isPending && (
-          <h2 style={{ textAlign: "center" }}>
-
-            We are working hard to find you the perfect date...
-          </h2>
+          <PendingStyle>
+            <CircleLoader color="var(--blue)" style={{margin: "50px auto"}}/>
+            <span style={{paddingTop: "20px"}}>We are working hard to find you the perfect date...</span>
+          </PendingStyle>
         )}
         {!this.state.isPending && (
           <div style={{ margin: "50px" }}>
             <h3>You have a date with:</h3>
             <DateContainer>
-              <Name>Clarabelle</Name>
+              <Name>Clara</Name>
               <ButtonContainer>
               <span> on Sunday at 2:30pm </span>
               <div>
