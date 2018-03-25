@@ -7,10 +7,24 @@ body {
   --pink: #e85b65;
   --orange: #de7762;
   --yellow: #d8af39;
-  --light-pink: #e8c4a1;
 }
 
 a {
   text-decoration: none;
   cursor: pointer;
+}
+
+.centre-box {
+    margin: auto;
+    width: 50%;
+    height: 30%;
+    border: 3px solid grey;
+    padding: 10px;
+}
+.question{
+
+}
+.img-select {
+  height: 100px;
+  width: 100px;
 }
