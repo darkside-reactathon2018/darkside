@@ -19,7 +19,7 @@ class App extends Component {
             <Nav>
               <Route path="/create" component={CreateProfile} />
               <Route path="/user/:user_id" component={UserProfile} />
-              <Route path="/user/:user_id/chat" component={Chat} />
+              <Route path="/chat" component={Chat} />
               <Route path="/schedule" component={Schedule}/>
               <Route path="/video" component={Video}/>
               <Route exact path="/" component={Home} />
