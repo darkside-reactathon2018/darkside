@@ -21,7 +21,8 @@ class MessageForm extends Component {
           type : 'message',
           text : this.state.text,
           time : 0, // Set by the server
-          user : 0, // Set before sending
+          user : 0, // Set before sending,
+          userName: this.props.userName,
           currentuser: true
         }
         this.props.onMessageSubmit(message);  
@@ -47,13 +48,12 @@ class MessageForm extends Component {
   class MessageBox extends Component {
   
     render() {
-  
       if(this.props.currentuser === true) {
   
         return (
   
           <div>
-            <div> {this.props.currentuser}: {this.props.text} </div>
+            <div> {this.props.userName}: {this.props.text} </div>
           </div>
   
         );
@@ -64,7 +64,7 @@ class MessageForm extends Component {
         return (
   
           <div>
-            <div> {this.props.text} </div>
+            <div> {this.props.userName}: {this.props.text} </div>
           </div>
   
         );
@@ -87,16 +87,14 @@ class MessageForm extends Component {
   }
   
   class MessageList extends Component {
-  
       render() {
-  
       const listItems = this.props.messagelist.map((message, i) => 
             {
               if(message.type === 'message') return (
-                <MessageBox key={i} text={message.text} time={message.time} currentuser={message.currentuser} />
+                <MessageBox key={i} text={message.text} time={message.time} userName={message.userName} currentuser={message.currentuser} />
               );
               else return (
-                <StatusBox key={i} status={message.status} count={message.count} />
+                <StatusBox key={i} status={message.status} />
               );
             }
         );
@@ -115,7 +113,7 @@ class MessageForm extends Component {
   
     constructor(props) {
       super(props);
-      this.state = {messages : [], userid : 0, users : 0};
+      this.state = {messages : [], userid : 0, userName: "James", users : 0};
   
       this.userAccept = this.userAccept.bind(this);
       this.userJoin = this.userJoin.bind(this);
@@ -141,7 +139,7 @@ class MessageForm extends Component {
       this.setState({ users : msg.users });
   
       var newMessages = this.state.messages;
-      newMessages.push( { 'type' : 'status', 'status' : 'you joined', 'count' : msg.users} );
+      newMessages.push( { 'type' : 'status', 'status' : 'you joined'} );
       this.setState( {messages : newMessages} );
     }
   
@@ -149,7 +147,7 @@ class MessageForm extends Component {
       this.setState((prevState, props) => ({ users: prevState.users + 1 }));
   
       var newMessages = this.state.messages;
-      newMessages.push( { 'type' : 'status', 'status' : 'someone joined', 'count' : this.state.users} );
+      newMessages.push( { 'type' : 'status', 'status' : 'someone joined'} );
       this.setState( {messages : newMessages} );
     }
   
@@ -157,7 +155,7 @@ class MessageForm extends Component {
       this.setState((prevState, props) => ({ users: prevState.users - 1 }));
   
       var newMessages = this.state.messages;
-      newMessages.push( { 'type' : 'status', 'status' : 'someone left', 'count' : this.state.users} );
+      newMessages.push( { 'type' : 'status', 'status' : 'someone left'} );
       this.setState( {messages : newMessages} );
     }
   
@@ -176,21 +174,21 @@ class MessageForm extends Component {
     }
   
     messageSend(message) {
-      message.user = this.state.userid;
+        message.user = this.state.userid;
+        message.userName = this.state.userName;
       socket.emit('send:message', message);
     }
   
     render() {
-  
       return (
   
         <div>
-          <MessageList messagelist={this.state.messages} />
-          <MessageForm onMessageSubmit={this.messageSend} />
+          <MessageList messagelist={this.state.messages}/>
+          <MessageForm onMessageSubmit={this.messageSend} userName={this.state.userName}/>
         </div>
   
       );
     }
   }
 
-export default Chat
+export default Chat;
