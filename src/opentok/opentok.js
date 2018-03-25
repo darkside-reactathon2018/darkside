@@ -54,19 +54,28 @@ class Video extends Component {
   render() {
     return (
       (!this.state.apiKey && <div>empty</div>) || (
-        <OTSession
-          apiKey={this.state.apiKey}
-          sessionId={this.state.sessionId}
-          token={this.state.token}
-          eventHandlers={this.sessionEvents}
-          onError={this.onError}
+        <div
+          style={{
+            position: "relative",
+            display: "flex",
+            "justify-content": "center",
+						"flex-direction": "row",
+						marginTop: "3%"
+          }}
         >
-          {/* <ConnectionStatus connected={this.state.connected} /> */}
-          <Publisher />
-          <OTStreams>
-            <Subscriber />
-          </OTStreams>
-        </OTSession>
+          <OTSession
+            apiKey={this.state.apiKey}
+            sessionId={this.state.sessionId}
+            token={this.state.token}
+            eventHandlers={this.sessionEvents}
+            onError={this.onError}
+          >
+            <Publisher />
+            <OTStreams>
+              <Subscriber />
+            </OTStreams>
+          </OTSession>
+        </div>
       )
     );
   }
