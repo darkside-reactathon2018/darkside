@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { Redirect } from "react-router-dom";
 import CalendarSlot from "./CalendarSlot";
 
 const Container = styled.div`
@@ -32,10 +33,21 @@ const Button = styled.span`
 
 class Calendar extends Component {
   state ={
+    redirect: false,
+    path: ""
+  }
 
+  handleClick = event => {
+    this.setState({
+      redirect: true,
+      path: "/schedule"
+    })
   }
 
   render() {
+    if (this.state.redirect) {
+      return <Redirect to={this.state.path} />
+    }
     let slots = [];
     for (var i = 0; i < 21; i++) {
       slots.push(<CalendarSlot idx={i}/>)
@@ -84,7 +96,7 @@ class Calendar extends Component {
         <div>{slots}</div>
         <div>{slots}</div>
       </Container>
-      <div style={{margin: "20px", textAlign: "right"}}><Button>Next</Button></div>
+      <div style={{margin: "20px", textAlign: "right"}} onClick={this.handleClick}><Button>Next</Button></div>
       </div>
       );
   }

@@ -3,9 +3,10 @@ form {
   font-size: 20px;
   position: relative;
   display: block;
-  left: 30%;
 }
 
-.question {
-  margin: 3rem;
+input {
+  height: 20px;
+  width: 300px;
+  margin: 20px 0;
 }

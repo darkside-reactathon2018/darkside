@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import * as bg from "./assets/bg.jpg";
 
 const Container = styled.div`
-  // margin: 100px;
   padding-top: 20%;
   padding-right: 4%;
 `;
