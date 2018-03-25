@@ -29,17 +29,23 @@ class RadioButton extends Component {
     isTrue: true
   }
 
+  handleClick = (newState) => {
+    this.setState(state => ({
+      isTrue: newState
+    }))
+  }
+
   render() {
     return (
       <div style={{display: "flex", alignItems: "center"}}>
         YES
         <Container>
-        <Radio/>
+        <Radio value={true} onClick={() => this.handleClick(true)}/>
         { this.state.isTrue && <Selected/> }
         </Container>
         NO
         <Container>
-        <Radio/>
+        <Radio value={false} onClick={() => this.handleClick(false)}/>
         { !this.state.isTrue && <Selected/> }
         </Container>
       </div>

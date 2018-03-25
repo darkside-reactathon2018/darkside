@@ -18,17 +18,24 @@ const Container = styled.div`
 
 class CreateProfile extends Component {
   state = {
-    isCalendar: false
+    isCalendar: false,
+    username: ""
   };
 
   renderQuestion(labelText, id, placeholder) {
     return (
       <div>
-        <label for={id}>{labelText}</label>
+        <label key={id}>{labelText}</label>
         <br />
-        <input type="text" id={id} name={id} placeholder={placeholder} />
+        <input onChange={this.handleChange} type="text" id={id} name={id} placeholder={placeholder} />
       </div>
     );
+  }
+
+  handleChange = event => {
+    this.setState({
+      username: event.target.value
+    })
   }
 
   handleClick = event => {
@@ -38,7 +45,7 @@ class CreateProfile extends Component {
   };
 
   render() {
- 
+    
       return (
         <Container>
           {!this.state.isCalendar && <div>
@@ -120,7 +127,7 @@ class CreateProfile extends Component {
               <Button>Next</Button>
             </div>
           </div>}
-          {this.state.isCalendar && <Calendar />}
+          {this.state.isCalendar && <Calendar username={this.state.username} />}
         </Container>
       );
     }
