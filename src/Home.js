@@ -9,7 +9,7 @@ const Container = styled.div`
   padding-right: 4%;
 `;
 
-const Button = styled.span`
+export const Button = styled.span`
   background-color: var(--blue);
   color: #fff;
   font-size: 20px;
