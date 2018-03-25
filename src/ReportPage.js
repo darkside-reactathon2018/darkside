@@ -1,7 +1,6 @@
 import React from "react";
 import * as yes from "./yes.png";
 import * as no from "./no.png";
-import axios from "axios";
 import request from 'request';
 
 class ReportPage extends React.Component {
