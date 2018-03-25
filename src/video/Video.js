@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import Publisher from "./Publisher";
 import Subscriber from "./Subscriber";
+import Timer from "./Timer";
 import {
   OTSession,
   OTPublisher,
   OTStreams,
   OTSubscriber,
-	preloadScript,
-	Timer
+	preloadScript
 } from "opentok-react";
 
 class Video extends Component {
@@ -59,11 +59,13 @@ class Video extends Component {
           style={{
             position: "relative",
             display: "flex",
-            "justify-content": "center",
-						"flex-direction": "row",
+						"justify-content": "center",
+						"align-items": "center",
+						"flex-direction": "column",
 						marginTop: "3%"
           }}
         >
+					<Timer />
           <OTSession
             apiKey={this.state.apiKey}
             sessionId={this.state.sessionId}
@@ -71,6 +73,7 @@ class Video extends Component {
             eventHandlers={this.sessionEvents}
             onError={this.onError}
           >
+						
             <Publisher />
             <OTStreams>
               <Subscriber />
