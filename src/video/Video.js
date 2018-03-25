@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Publisher from "./Publisher";
 import Subscriber from "./Subscriber";
 import Timer from "./Timer";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 import {
   OTSession,
   OTPublisher,
@@ -9,6 +11,19 @@ import {
   OTSubscriber,
 	preloadScript
 } from "opentok-react";
+
+export const Button = styled.span`
+  background-color: var(--blue);
+  color: #fff;
+  font-size: 20px;
+  border-radius: 15px;
+  padding: 10px;
+
+  &:hover {
+    box-shadow: 0 2px 10px var(--pink);
+    
+  }
+`;
 
 class Video extends Component {
   constructor(props) {
@@ -79,6 +94,7 @@ class Video extends Component {
               <Subscriber />
             </OTStreams>
           </OTSession>
+					<Link to="/" style={{ margin: "50px" }}><Button>Get me out of here!</Button></Link>
         </div>
       )
     );

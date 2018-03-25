@@ -31,7 +31,7 @@ export default class Publisher extends Component {
 
   render() {
     return (
-      <div style={{ position: "absolute", top: "65%", right: "18%", zIndex: 1 }}>
+      <div style={{ position: "absolute", top: "53%", right: "18%", zIndex: 1 }}>
         {this.state.error ? <div>{this.state.error}</div> : null}
         <OTPublisher
           session={this.props.session}
