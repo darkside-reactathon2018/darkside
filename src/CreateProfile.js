@@ -10,6 +10,7 @@ class CreateProfile extends Component {
     return (
       <div>
       <label for={id}>{labelText}</label>
+      <br/>
       <input 
         type='text'
         id={id}
