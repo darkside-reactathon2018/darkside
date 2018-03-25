@@ -6,6 +6,7 @@ import Home from "./Home";
 import CreateProfile from "./CreateProfile";
 import UserProfile from "./UserProfile";
 import Chat from "./Chat";
+import Video from './opentok/opentok.js';
 
 class App extends Component {
   render() {
