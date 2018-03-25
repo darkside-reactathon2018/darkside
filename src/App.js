@@ -7,6 +7,7 @@ import CreateProfile from "./CreateProfile";
 import UserProfile from "./UserProfile";
 import Video from './opentok/opentok.js';
 import Schedule from "./Schedule";
+import ReportPage from './ReportPage';
 
 class App extends Component {
   render() {
@@ -20,6 +21,7 @@ class App extends Component {
               <Route path="/schedule" component={Schedule}/>
               <Route path="/video" component={Video}/>
               <Route exact path="/" component={Home} />
+              <Route path="/report" component={ReportPage} />
             </Nav>
           </Switch>
         </BrowserRouter>
