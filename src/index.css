@@ -2,4 +2,14 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  --dark-grey: #5b707e;
+  --blue: #278b9b;
+  --pink: #e85b65;
+  --orange: #de7762;
+  --yellow: #d8af39;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
 }
