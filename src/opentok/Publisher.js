@@ -38,7 +38,9 @@ export default class Publisher extends Component {
           properties={{
             publishAudio: this.state.audio,
             publishVideo: this.state.video,
-            videoSource: this.state.videoSource === 'screen' ? 'screen' : undefined
+						videoSource: this.state.videoSource === 'screen' ? 'screen' : undefined,
+						width: 400, 
+						height:400
           }}
           onError={this.onError}
         />

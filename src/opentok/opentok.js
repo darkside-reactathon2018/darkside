@@ -37,7 +37,7 @@ class Video extends Component {
   }
 
   async componentDidMount() {
-    let response = await fetch("http://localhost:5000/");
+    let response = await fetch("https://darkside.abut27.hasura-app.io/");
     let data = await response.json();
 
     this.setState({
@@ -59,7 +59,7 @@ class Video extends Component {
           sessionId={this.state.sessionId}
           token={this.state.token}
           eventHandlers={this.sessionEvents}
-          onError={this.onError}
+					onError={this.onError}
         >
           {/* <ConnectionStatus connected={this.state.connected} /> */}
           <Publisher />

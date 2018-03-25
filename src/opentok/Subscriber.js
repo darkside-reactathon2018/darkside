@@ -33,7 +33,9 @@ export default class Subscriber extends Component {
           stream={this.props.stream}
           properties={{
             subscribeToAudio: this.state.audio,
-            subscribeToVideo: this.state.video
+						subscribeToVideo: this.state.video,
+						width: 400, 
+						height:400
           }}
           onError={this.onError}
         />
