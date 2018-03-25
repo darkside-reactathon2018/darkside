@@ -1,13 +1,29 @@
 import React, { Component } from "react";
 import Publisher from "./Publisher";
 import Subscriber from "./Subscriber";
+import Timer from "./Timer";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 import {
   OTSession,
   OTPublisher,
   OTStreams,
   OTSubscriber,
-  preloadScript
+	preloadScript
 } from "opentok-react";
+
+export const Button = styled.span`
+  background-color: var(--blue);
+  color: #fff;
+  font-size: 20px;
+  border-radius: 15px;
+  padding: 10px;
+
+  &:hover {
+    box-shadow: 0 2px 10px var(--pink);
+    
+  }
+`;
 
 class Video extends Component {
   constructor(props) {
@@ -37,7 +53,7 @@ class Video extends Component {
   }
 
   async componentDidMount() {
-    let response = await fetch("http://localhost:5000/");
+    let response = await fetch("https://darkside.abut27.hasura-app.io/");
     let data = await response.json();
 
     this.setState({
@@ -54,19 +70,32 @@ class Video extends Component {
   render() {
     return (
       (!this.state.apiKey && <div>empty</div>) || (
-        <OTSession
-          apiKey={this.state.apiKey}
-          sessionId={this.state.sessionId}
-          token={this.state.token}
-          eventHandlers={this.sessionEvents}
-          onError={this.onError}
+        <div
+          style={{
+            position: "relative",
+            display: "flex",
+						"justify-content": "center",
+						"align-items": "center",
+						"flex-direction": "column",
+						marginTop: "3%"
+          }}
         >
-          {/* <ConnectionStatus connected={this.state.connected} /> */}
-          <Publisher />
-          <OTStreams>
-            <Subscriber />
-          </OTStreams>
-        </OTSession>
+					<Timer />
+          <OTSession
+            apiKey={this.state.apiKey}
+            sessionId={this.state.sessionId}
+            token={this.state.token}
+            eventHandlers={this.sessionEvents}
+            onError={this.onError}
+          >
+						
+            <Publisher />
+            <OTStreams>
+              <Subscriber />
+            </OTStreams>
+          </OTSession>
+					<Link to="/report" style={{ margin: "50px" }}><Button>Get me out of here!</Button></Link>
+        </div>
       )
     );
   }

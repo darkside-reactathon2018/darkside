@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import * as yes from "./yes.png";
-import * as no from "./no.png";
-import request from "request";
 import { Redirect } from "react-router-dom";
 
 const Container = styled.div`
@@ -38,7 +35,9 @@ const Thumb = styled.i`
 
 class ReportPage extends Component {
   state = {
-    yesOrNo: null
+    yesOrNo: null,
+    redirect: false,
+    path: ""
   }
 
   handleClick = newState => {
@@ -58,10 +57,10 @@ class ReportPage extends Component {
   };
 
   render() {
+
     if (this.state.redirect) {
       return this.state.yesOrNo ? <Redirect to={this.state.path}/> : <h3>Sorry, your date didn't like you back.</h3>
     }
-
     return (
       <Container>
         <h1 style={{textAlign: "center"}}>How was it?</h1>
@@ -72,6 +71,7 @@ class ReportPage extends Component {
       </Container>
     );
   }
+
 }
 
 export default ReportPage;
