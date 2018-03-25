@@ -6,7 +6,8 @@ import {
   OTPublisher,
   OTStreams,
   OTSubscriber,
-  preloadScript
+	preloadScript,
+	Timer
 } from "opentok-react";
 
 class Video extends Component {

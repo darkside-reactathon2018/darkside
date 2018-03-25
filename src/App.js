@@ -5,7 +5,7 @@ import Nav from "./Nav";
 import Home from "./Home";
 import CreateProfile from "./CreateProfile";
 import UserProfile from "./UserProfile";
-import Video from './opentok/opentok.js';
+import Video from './video/Video';
 import Schedule from "./Schedule";
 
 class App extends Component {
