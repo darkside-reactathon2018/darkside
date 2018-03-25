@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import io from 'socket.io-client';
 
-const socket = io('http://localhost:3000');
+const socket = io('http://localhost:8080');
 
 class MessageForm extends Component {
 
@@ -53,9 +53,7 @@ class MessageForm extends Component {
         return (
   
           <div>
-            <div> {this.props.text} </div>
-            <br/>
-            <div> {this.props.time} </div>
+            <div> {this.props.currentuser}: {this.props.text} </div>
           </div>
   
         );
@@ -67,8 +65,6 @@ class MessageForm extends Component {
   
           <div>
             <div> {this.props.text} </div>
-            <br/>
-            <div> {this.props.time} </div>
           </div>
   
         );
@@ -84,7 +80,6 @@ class MessageForm extends Component {
   
         <div>
           {this.props.status} <br/>
-          there {this.props.count > 1 ? 'are' : 'is'} {this.props.count} {this.props.count > 1 ? 'participants' : 'participant'}
         </div>
   
       );
