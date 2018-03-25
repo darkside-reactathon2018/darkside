@@ -1,12 +1,19 @@
-import React, { Component } from 'react';
-import Video from './opentok';
+import React, { Component } from "react";
+import Video from "./opentok";
 
 export default class Match extends Component {
-	render() {
-		return (
-		<div style={{ display: "flex", "align-items": "flex-start"	}}>
-			<Video />
-		</div>
-		);
-	}
+  render() {
+    return (
+      <div
+        style={{
+          position: "relative",
+          display: "flex",
+          "justify-content": "center",
+          "flex-direction": "row"
+        }}
+      >
+        <Video />
+      </div>
+    );
+  }
 }

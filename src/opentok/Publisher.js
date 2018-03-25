@@ -31,7 +31,7 @@ export default class Publisher extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{ position: "absolute", top: "65%", right: "18%", zIndex: 1 }}>
         {this.state.error ? <div>{this.state.error}</div> : null}
         <OTPublisher
           session={this.props.session}
@@ -39,12 +39,11 @@ export default class Publisher extends Component {
             publishAudio: this.state.audio,
             publishVideo: this.state.video,
 						videoSource: this.state.videoSource === 'screen' ? 'screen' : undefined,
-						width: 400, 
-						height:400
+						width: 200, 
+						height:200
           }}
-          onError={this.onError}
+					onError={this.onError}
         />
-        
       </div>
     );
   }

@@ -59,7 +59,7 @@ class Video extends Component {
           sessionId={this.state.sessionId}
           token={this.state.token}
           eventHandlers={this.sessionEvents}
-					onError={this.onError}
+          onError={this.onError}
         >
           {/* <ConnectionStatus connected={this.state.connected} /> */}
           <Publisher />

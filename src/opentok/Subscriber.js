@@ -26,7 +26,7 @@ export default class Subscriber extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{ "z-index": 0 }}>
         {this.state.error ? <div>{this.state.error}</div> : null}
         <OTSubscriber
           session={this.props.session}
@@ -34,10 +34,10 @@ export default class Subscriber extends Component {
           properties={{
             subscribeToAudio: this.state.audio,
 						subscribeToVideo: this.state.video,
-						width: 400, 
-						height:400
+						width: 1000, 
+						height: 600
           }}
-          onError={this.onError}
+					onError={this.onError}
         />
       </div>
     );
