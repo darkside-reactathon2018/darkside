@@ -5,6 +5,7 @@ import Nav from "./Nav";
 import Home from "./Home";
 import CreateProfile from "./CreateProfile";
 import UserProfile from "./UserProfile";
+import Chat from "./Chat";
 
 class App extends Component {
   render() {
@@ -15,6 +16,7 @@ class App extends Component {
             <Nav>
               <Route path="/create" component={CreateProfile} />
               <Route path="/user/:user_id" component={UserProfile} />
+              <Route path="/user/:user_id/chat" component={Chat} />
               <Route exact path="/" component={Home} />
             </Nav>
           </Switch>
