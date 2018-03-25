@@ -2,6 +2,7 @@ import React from "react";
 import * as yes from "./yes.png";
 import * as no from "./no.png";
 import axios from "axios";
+import request from 'request';
 
 class ReportPage extends React.Component {
     constructor(props) {
@@ -10,25 +11,17 @@ class ReportPage extends React.Component {
     state = {
         yesOrNo: null
     }
+
     yes() {
         console.log("yes");
         this.setState({yesOrNo:true});
+       
     }
 
     no() {
-        console.log("no");
-        this.setState({yesOrNo:false});
+       
     }
     
-    componentDidUpdate() {
-        if(this.state.yesOrNo){
-            //send to chat
-        } else {
-            //send to home
-        }
-    }
-    
-
     render() {
         return(
             <div className="centre-box">
