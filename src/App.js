@@ -5,6 +5,7 @@ import Nav from "./Nav";
 import Home from "./Home";
 import CreateProfile from "./CreateProfile";
 import UserProfile from "./UserProfile";
+import Video from './opentok/opentok.js';
 
 class App extends Component {
   render() {
